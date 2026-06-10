@@ -1,0 +1,8 @@
+# Local env / secrets — never commit your API token
+.env
+.env.*
+
+# OS / editor cruft
+.DS_Store
+*.log
+node_modules/
