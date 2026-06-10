@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casium World Cup 2026 — Leaderboard</title>
+<style>
+  :root{
+    --pine:#0E3B2E; --pine-2:#14563F; --pine-3:#0a2c22;
+    --chalk:#F5F3EC; --surface:#FFFFFF; --ink:#10241C; --muted:#5d6f66;
+    --gold:#D9A441; --gold-soft:#f3e6c4; --line:#e2e6dd; --danger:#b3463b;
+    --shadow:0 1px 2px rgba(16,36,28,.06),0 8px 24px rgba(16,36,28,.06);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--chalk);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:820px;margin:0 auto;padding:0 18px 56px}
+
+  .board-head{background:repeating-linear-gradient(90deg,var(--pine) 0 56px,var(--pine-2) 56px 112px);
+    color:#fff;border-bottom:3px solid var(--gold)}
+  .board-head .inner{max-width:820px;margin:0 auto;padding:22px 18px 18px}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin:0 0 6px}
+  .title{font-size:clamp(24px,5vw,40px);line-height:1.02;margin:0;font-weight:800;letter-spacing:.01em;text-transform:uppercase}
+  .subline{margin:8px 0 0;color:#d7e3dc;font-size:14px}
+  .subline .flags{font-size:17px;letter-spacing:2px}
+
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);margin-top:20px}
+  .panel-pad{padding:22px}
+  .panel h2{margin:0;font-size:20px;font-weight:800}
+  .lede{color:var(--muted);font-size:14px;margin:6px 0 0}
+
+  table.lb{width:100%;border-collapse:collapse;margin-top:12px}
+  table.lb th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+    text-align:left;padding:8px 8px;border-bottom:2px solid var(--line)}
+  table.lb td{padding:11px 8px;border-bottom:1px solid var(--line);font-size:14px;vertical-align:middle}
+  table.lb th.num,table.lb td.num{text-align:right;font-variant-numeric:tabular-nums}
+  table.lb th.ctr,table.lb td.ctr{text-align:center;font-variant-numeric:tabular-nums}
+  .rank{font-weight:800;font-variant-numeric:tabular-nums;color:var(--muted);width:30px;display:inline-block;text-align:center}
+  tr.row{cursor:pointer}
+  tr.row:hover{background:#fbfaf5}
+  tr.leader{background:linear-gradient(90deg,var(--gold-soft),transparent)}
+  tr.leader .rank{color:var(--gold)}
+  .pts{font-weight:800;font-size:17px;font-variant-numeric:tabular-nums}
+  .neg{color:var(--danger)}
+  .medal{font-size:17px}
+  .lb-flag{font-size:21px;margin-right:8px;vertical-align:-3px}
+  .name-cell .who{font-weight:700}
+  .name-cell .team{color:var(--muted);font-size:12.5px;margin-top:1px}
+  .wdl{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .wdl b{color:var(--pine)}
+  .cards{white-space:nowrap;letter-spacing:1px}
+  .cards .none{color:var(--line)}
+  .caret{color:var(--muted);font-size:11px;margin-left:6px}
+
+  tr.detail td{background:#fafdf9;border-bottom:1px solid var(--line);padding:0}
+  tr.detail .det-inner{padding:12px 14px 14px 50px;display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-size:12px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 10px;
+    color:var(--ink);font-variant-numeric:tabular-nums}
+  .chip b{color:var(--pine)}
+  .chip.minus b{color:var(--danger)}
+  .chip.tot{background:var(--pine);color:#fff;border-color:var(--pine)}
+  .chip.tot b{color:var(--gold)}
+
+  details.legend{margin-top:18px;border-top:1px solid var(--line);padding-top:14px}
+  details.legend summary{cursor:pointer;font-size:13px;font-weight:700;color:var(--pine);list-style:none}
+  details.legend summary::-webkit-details-marker{display:none}
+  details.legend summary::before{content:"▸ ";color:var(--gold)}
+  details.legend[open] summary::before{content:"▾ "}
+  .rules{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:12px}
+  .rule{font-size:13px;background:#fbfaf5;border:1px solid var(--line);border-radius:10px;padding:9px 11px}
+  .rule .v{font-weight:800;color:var(--pine);font-variant-numeric:tabular-nums}
+  .rule .v.minus{color:var(--danger)}
+  .rule .d{color:var(--muted);font-size:12px;margin-top:2px}
+
+  .foot-note{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+  .foot-note b{color:var(--pine)}
+  .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-right:5px;vertical-align:1px}
+  .dot.live{background:#3aa564;box-shadow:0 0 0 0 rgba(58,165,100,.6);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(58,165,100,.5)}70%{box-shadow:0 0 0 7px rgba(58,165,100,0)}100%{box-shadow:0 0 0 0 rgba(58,165,100,0)}}
+  footer.foot{text-align:center;color:var(--muted);font-size:12px;margin-top:22px}
+
+  @media (max-width:560px){ .hide-sm{display:none} table.lb td,table.lb th{padding:9px 5px} }
+</style>
+</head>
+<body>
+  <header class="board-head">
+    <div class="inner">
+      <p class="eyebrow">Casium · Internal Sweepstake</p>
+      <h1 class="title">World Cup 2026 Leaderboard</h1>
+      <p class="subline"><span class="flags">🇺🇸 🇨🇦 🇲🇽</span> June 11 – July 19, 2026 • back your nation, rack up points</p>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="panel panel-pad">
+      <h2>Standings</h2>
+      <p class="lede">Goals, results, discipline and clutch timing all count. Tap any row for the breakdown.</p>
+      <table class="lb">
+        <thead><tr>
+          <th style="width:34px">#</th>
+          <th>Player &amp; nation</th>
+          <th class="ctr">Goals</th>
+          <th class="ctr hide-sm">W-D-L</th>
+          <th class="ctr hide-sm">Cards</th>
+          <th class="num">Points</th>
+        </tr></thead>
+        <tbody id="lbBody"></tbody>
+      </table>
+
+      <details class="legend">
+        <summary>How points work</summary>
+        <div class="rules" id="rules"></div>
+        <p class="lede" style="margin-top:10px">Weights live in <b>scoring.config.json</b> — change a number there and the board re-ranks on the next load.</p>
+      </details>
+
+      <div class="foot-note">
+        <span id="totalNote"></span>
+        <span id="sourceNote"></span>
+      </div>
+    </div>
+    <footer class="foot">Casium internal — a friendly World Cup sweepstake. Not affiliated with FIFA. Match data via football-data.org.</footer>
+  </div>
+
+<script>
+/* ============================================================
+   Casium World Cup 2026 — Leaderboard
+   Reads data.json (raw per-team stats, written by the GitHub Action)
+   and scoring.config.json (the weights), then computes points here so
+   scoring stays tweakable without re-fetching. Embedded copies below
+   are fallbacks so the page still renders if a fetch fails (e.g. opened
+   directly from disk).
+   ============================================================ */
+
+/* --- The roster (fixed) --- */
+const ROSTER = [
+  { name: "Conrad",    code: "arg" },
+  { name: "Kaustubh",  code: "nor" },
+  { name: "Ashlee",    code: "usa" },
+  { name: "Luke",      code: "esp" },
+  { name: "Thanh",     code: "ecu" },
+  { name: "Phil",      code: "cpv" },
+  { name: "Alexander", code: "ger" },
+  { name: "Dibyendu",  code: "bra" },
+  { name: "Priyanka",  code: "fra" }
+];
+
+const TEAMS = {
+  arg: { name: "Argentina",     flag: "🇦🇷", conf: "CONMEBOL", group: "J" },
+  nor: { name: "Norway",        flag: "🇳🇴", conf: "UEFA",     group: "I" },
+  usa: { name: "United States", flag: "🇺🇸", conf: "CONCACAF", group: "D" },
+  esp: { name: "Spain",         flag: "🇪🇸", conf: "UEFA",     group: "H" },
+  ecu: { name: "Ecuador",       flag: "🇪🇨", conf: "CONMEBOL", group: "E" },
+  cpv: { name: "Cape Verde",    flag: "🇨🇻", conf: "CAF",      group: "E" },
+  ger: { name: "Germany",       flag: "🇩🇪", conf: "UEFA",     group: "E" },
+  bra: { name: "Brazil",        flag: "🇧🇷", conf: "CONMEBOL", group: "C" },
+  fra: { name: "France",        flag: "🇫🇷", conf: "UEFA",     group: "F" }
+};
+
+/* Fallbacks if the JSON files can't be fetched (kept in sync with the files). */
+const EMBEDDED_CONFIG = {
+  goalBase: 3,
+  timingBands: [
+    { label: "1–45'", maxMinute: 45, bonus: 0 },
+    { label: "46–75'", maxMinute: 75, bonus: 1 },
+    { label: "76–90'", maxMinute: 90, bonus: 2 },
+    { label: "90'+", maxMinute: 200, bonus: 3 }
+  ],
+  win: 5, draw: 2, loss: 0, yellowCard: -1, redCard: -3, cleanSheet: 2, knockoutAdvance: 5
+};
+const EMPTY = { goals: 0, goalMinutes: [], yellow: 0, red: 0, wins: 0, draws: 0, losses: 0, cleanSheets: 0, knockoutWins: 0, played: 0 };
+const EMBEDDED_DATA = { updatedAt: null, source: "embedded fallback", teams: Object.fromEntries(ROSTER.map(p => [p.code, { ...EMPTY }])) };
+
+let cfg = EMBEDDED_CONFIG;
+let board = EMBEDDED_DATA;
+const expanded = new Set();
+const medals = { 1: "🥇", 2: "🥈", 3: "🥉" };
+const num = n => Number(n) || 0;
+
+/* --- Scoring --- */
+function timingBonus(minute){
+  const bands = [...cfg.timingBands].sort((a, b) => a.maxMinute - b.maxMinute);
+  for (const b of bands) if (minute <= b.maxMinute) return b.bonus;
+  return bands.length ? bands[bands.length - 1].bonus : 0;
+}
+function compute(s){
+  s = Object.assign({}, EMPTY, s);
+  const base    = num(s.goals) * cfg.goalBase;
+  const timing  = (s.goalMinutes || []).reduce((t, m) => t + timingBonus(num(m)), 0);
+  const results = num(s.wins) * cfg.win + num(s.draws) * cfg.draw + num(s.losses) * cfg.loss;
+  const cards   = num(s.yellow) * cfg.yellowCard + num(s.red) * cfg.redCard;
+  const sheets  = num(s.cleanSheets) * cfg.cleanSheet;
+  const ko      = num(s.knockoutWins) * cfg.knockoutAdvance;
+  return { ...s, base, timing, results, cards, sheets, ko, total: base + timing + results + cards + sheets + ko };
+}
+
+function ranked(){
+  const arr = ROSTER.map(p => {
+    const s = compute(board.teams?.[p.code] || {});
+    return { ...p, t: TEAMS[p.code], s, pts: s.total };
+  });
+  arr.sort((a, b) => b.pts - a.pts || num(b.s.goals) - num(a.s.goals) || a.name.localeCompare(b.name));
+  let rank = 0, prev = null, seen = 0;
+  arr.forEach(p => { seen++; if (prev === null || p.pts !== prev) { rank = seen; prev = p.pts; } p.rank = rank; });
+  return arr;
+}
+
+/* --- Render --- */
+function cardsCell(s){
+  if (!s.yellow && !s.red) return '<span class="none">—</span>';
+  const y = s.yellow ? `🟨${s.yellow}` : "";
+  const r = s.red ? ` 🟥${s.red}` : "";
+  return `${y}${r}`;
+}
+function signed(n){ return (n > 0 ? "+" : "") + n; }
+
+function detailChips(s){
+  const parts = [
+    { t: `${s.goals} goal${s.goals !== 1 ? "s" : ""}`, v: s.base },
+    { t: "clutch timing", v: s.timing },
+    { t: `${s.wins}W · ${s.draws}D · ${s.losses}L`, v: s.results },
+    { t: "clean sheets", v: s.sheets },
+    { t: "knockout wins", v: s.ko },
+    { t: "cards", v: s.cards }
+  ];
+  const chips = parts
+    .filter(p => p.v !== 0 || p.t.includes("goal"))
+    .map(p => `<span class="chip ${p.v < 0 ? "minus" : ""}">${p.t} <b>${signed(p.v)}</b></span>`)
+    .join("");
+  return chips + `<span class="chip tot">Total <b>${s.total}</b></span>`;
+}
+
+function render(){
+  const rows = ranked().map(p => {
+    const isLeader = p.rank === 1 && p.pts !== 0;
+    const mark = (p.pts > 0 && medals[p.rank]) ? `<span class="medal">${medals[p.rank]}</span>` : `<span class="rank">${p.rank}</span>`;
+    const open = expanded.has(p.code);
+    const main = `<tr class="row ${isLeader ? "leader" : ""}" data-code="${p.code}">
+      <td>${mark}</td>
+      <td class="name-cell">
+        <span class="lb-flag">${p.t.flag}</span><span class="who">${p.name}</span><span class="caret">${open ? "▾" : "▸"}</span>
+        <div class="team">${p.t.name} · ${p.t.conf} · Grp ${p.t.group}</div>
+      </td>
+      <td class="ctr">${p.s.goals}</td>
+      <td class="ctr hide-sm wdl"><b>${p.s.wins}</b>-${p.s.draws}-${p.s.losses}</td>
+      <td class="ctr hide-sm cards">${cardsCell(p.s)}</td>
+      <td class="num"><span class="pts ${p.pts < 0 ? "neg" : ""}">${p.pts}</span></td>
+    </tr>`;
+    const det = open
+      ? `<tr class="detail" data-for="${p.code}"><td colspan="6"><div class="det-inner">${detailChips(p.s)}</div></td></tr>`
+      : "";
+    return main + det;
+  }).join("");
+  document.getElementById("lbBody").innerHTML = rows;
+
+  const totalGoals = ROSTER.reduce((s, p) => s + num(board.teams?.[p.code]?.goals), 0);
+  document.getElementById("totalNote").innerHTML = `<b>${totalGoals}</b> goal${totalGoals !== 1 ? "s" : ""} across the field`;
+
+  const live = board.updatedAt && (Date.now() - new Date(board.updatedAt).getTime() < 20 * 60 * 1000);
+  const when = board.updatedAt ? new Date(board.updatedAt).toLocaleString() : "no matches yet";
+  document.getElementById("sourceNote").innerHTML =
+    `<span class="dot ${live ? "live" : ""}"></span>${board.source || "—"} · updated ${when}`;
+}
+
+function renderRules(){
+  const r = [
+    { v: `+${cfg.goalBase}`, t: "Per goal", d: "base points for any goal your nation scores" },
+    { v: `up to +${Math.max(...cfg.timingBands.map(b => b.bonus))}`, t: "Clutch timing", d: cfg.timingBands.map(b => `${b.label} ${signed(b.bonus)}`).join(" · ") },
+    { v: `+${cfg.win}`, t: "Win", d: "for each match won" },
+    { v: `+${cfg.draw}`, t: "Draw", d: "for each match drawn" },
+    { v: signed(cfg.yellowCard), t: "Yellow card", d: "per booking against your nation", minus: true },
+    { v: signed(cfg.redCard), t: "Red card", d: "per sending-off against your nation", minus: true },
+    { v: `+${cfg.cleanSheet}`, t: "Clean sheet", d: "match where your nation concedes none" },
+    { v: `+${cfg.knockoutAdvance}`, t: "Knockout win", d: "bonus for winning a knockout-round match" }
+  ];
+  document.getElementById("rules").innerHTML = r.map(x =>
+    `<div class="rule"><span class="v ${x.minus ? "minus" : ""}">${x.v}</span> ${x.t}<div class="d">${x.d}</div></div>`
+  ).join("");
+}
+
+document.getElementById("lbBody").addEventListener("click", e => {
+  const tr = e.target.closest("tr.row");
+  if (!tr) return;
+  const code = tr.dataset.code;
+  if (expanded.has(code)) expanded.delete(code); else expanded.add(code);
+  render();
+});
+
+async function load(){
+  const bust = "?t=" + Date.now();
+  try { cfg = await (await fetch("scoring.config.json" + bust, { cache: "no-store" })).json(); } catch (e) {}
+  try { board = await (await fetch("data.json" + bust, { cache: "no-store" })).json(); } catch (e) {}
+  renderRules();
+  render();
+}
+
+renderRules();
+render();          // paint immediately with embedded fallbacks
+load();            // then hydrate from the JSON files
+setInterval(load, 60000);  // refresh every minute
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "_comment": "Single source of truth for how points are calculated. Edit any number and the leaderboard re-ranks on the next page load — no code change needed. Both the leaderboard page and the score-fetcher read this file.",
+
+  "goalBase": 3,
+  "timingBands": [
+    { "label": "1–45'",  "maxMinute": 45,  "bonus": 0 },
+    { "label": "46–75'", "maxMinute": 75,  "bonus": 1 },
+    { "label": "76–90'", "maxMinute": 90,  "bonus": 2 },
+    { "label": "90'+",        "maxMinute": 200, "bonus": 3 }
+  ],
+
+  "win": 5,
+  "draw": 2,
+  "loss": 0,
+
+  "yellowCard": -1,
+  "redCard": -3,
+
+  "cleanSheet": 2,
+  "knockoutAdvance": 5
+}

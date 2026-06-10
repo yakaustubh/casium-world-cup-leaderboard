@@ -1,0 +1,115 @@
+{
+  "updatedAt": null,
+  "source": "seed (no matches played yet)",
+  "competition": "FIFA World Cup 2026",
+  "teams": {
+    "arg": {
+      "goals": 0,
+      "goalMinutes": [],
+      "yellow": 0,
+      "red": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "cleanSheets": 0,
+      "knockoutWins": 0,
+      "played": 0
+    },
+    "nor": {
+      "goals": 0,
+      "goalMinutes": [],
+      "yellow": 0,
+      "red": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "cleanSheets": 0,
+      "knockoutWins": 0,
+      "played": 0
+    },
+    "usa": {
+      "goals": 0,
+      "goalMinutes": [],
+      "yellow": 0,
+      "red": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "cleanSheets": 0,
+      "knockoutWins": 0,
+      "played": 0
+    },
+    "esp": {
+      "goals": 0,
+      "goalMinutes": [],
+      "yellow": 0,
+      "red": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "cleanSheets": 0,
+      "knockoutWins": 0,
+      "played": 0
+    },
+    "ecu": {
+      "goals": 0,
+      "goalMinutes": [],
+      "yellow": 0,
+      "red": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "cleanSheets": 0,
+      "knockoutWins": 0,
+      "played": 0
+    },
+    "cpv": {
+      "goals": 0,
+      "goalMinutes": [],
+      "yellow": 0,
+      "red": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "cleanSheets": 0,
+      "knockoutWins": 0,
+      "played": 0
+    },
+    "ger": {
+      "goals": 0,
+      "goalMinutes": [],
+      "yellow": 0,
+      "red": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "cleanSheets": 0,
+      "knockoutWins": 0,
+      "played": 0
+    },
+    "bra": {
+      "goals": 0,
+      "goalMinutes": [],
+      "yellow": 0,
+      "red": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "cleanSheets": 0,
+      "knockoutWins": 0,
+      "played": 0
+    },
+    "fra": {
+      "goals": 0,
+      "goalMinutes": [],
+      "yellow": 0,
+      "red": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "cleanSheets": 0,
+      "knockoutWins": 0,
+      "played": 0
+    }
+  }
+}
