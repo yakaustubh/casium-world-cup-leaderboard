@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-14T17:42:27.077Z",
+  "updatedAt": "2026-06-14T18:59:12.446Z",
   "source": "football-data.org",
   "competition": "FIFA World Cup 2026",
   "teams": {
@@ -76,7 +76,7 @@
       "played": 0
     },
     "ger": {
-      "goals": 1,
+      "goals": 7,
       "goalMinutes": [],
       "yellow": 0,
       "red": 0,
