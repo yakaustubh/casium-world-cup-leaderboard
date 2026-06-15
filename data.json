@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-15T10:46:51.938Z",
+  "updatedAt": "2026-06-15T16:10:34.857Z",
   "source": "football-data.org",
   "competition": "FIFA World Cup 2026",
   "teams": {
@@ -49,7 +49,7 @@
       "losses": 0,
       "cleanSheets": 0,
       "knockoutWins": 0,
-      "played": 0
+      "played": 1
     },
     "ecu": {
       "goals": 0,
@@ -73,7 +73,7 @@
       "losses": 0,
       "cleanSheets": 0,
       "knockoutWins": 0,
-      "played": 0
+      "played": 1
     },
     "ger": {
       "goals": 7,
