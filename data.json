@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-21T23:41:37.401Z",
+  "updatedAt": "2026-06-22T02:08:44.094Z",
   "source": "football-data.org",
   "competition": "FIFA World Cup 2026",
   "teams": {
@@ -69,7 +69,7 @@
       "yellow": 0,
       "red": 0,
       "wins": 0,
-      "draws": 1,
+      "draws": 2,
       "losses": 0,
       "cleanSheets": 1,
       "knockoutWins": 0,
