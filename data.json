@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-02T20:13:21.024Z",
+  "updatedAt": "2026-07-02T21:25:42.760Z",
   "source": "football-data.org",
   "competition": "FIFA World Cup 2026",
   "teams": {
@@ -40,15 +40,15 @@
       "played": 4
     },
     "esp": {
-      "goals": 6,
+      "goals": 8,
       "goalMinutes": [],
       "yellow": 0,
       "red": 0,
-      "wins": 2,
+      "wins": 3,
       "draws": 1,
       "losses": 0,
-      "cleanSheets": 3,
-      "knockoutWins": 0,
+      "cleanSheets": 4,
+      "knockoutWins": 1,
       "played": 4
     },
     "ecu": {
