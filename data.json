@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-07-03T21:49:40.464Z",
+  "updatedAt": "2026-07-03T22:47:00.946Z",
   "source": "football-data.org",
   "competition": "FIFA World Cup 2026",
   "teams": {
     "arg": {
-      "goals": 8,
+      "goals": 9,
       "goalMinutes": [],
       "yellow": 0,
       "red": 0,
@@ -13,7 +13,7 @@
       "losses": 0,
       "cleanSheets": 2,
       "knockoutWins": 0,
-      "played": 3
+      "played": 4
     },
     "nor": {
       "goals": 10,
@@ -73,7 +73,7 @@
       "losses": 0,
       "cleanSheets": 2,
       "knockoutWins": 0,
-      "played": 3
+      "played": 4
     },
     "ger": {
       "goals": 14,
