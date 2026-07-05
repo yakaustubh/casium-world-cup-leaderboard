@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-05T20:48:43.636Z",
+  "updatedAt": "2026-07-05T21:45:21.546Z",
   "source": "football-data.org",
   "competition": "FIFA World Cup 2026",
   "teams": {
@@ -25,7 +25,7 @@
       "losses": 1,
       "cleanSheets": 0,
       "knockoutWins": 1,
-      "played": 5
+      "played": 4
     },
     "usa": {
       "goals": 10,
@@ -97,7 +97,7 @@
       "losses": 0,
       "cleanSheets": 2,
       "knockoutWins": 1,
-      "played": 5
+      "played": 4
     },
     "fra": {
       "goals": 14,
