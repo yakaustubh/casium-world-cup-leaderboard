@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-05T21:45:21.546Z",
+  "updatedAt": "2026-07-05T22:44:20.957Z",
   "source": "football-data.org",
   "competition": "FIFA World Cup 2026",
   "teams": {
@@ -16,16 +16,16 @@
       "played": 4
     },
     "nor": {
-      "goals": 10,
+      "goals": 12,
       "goalMinutes": [],
       "yellow": 0,
       "red": 0,
-      "wins": 3,
+      "wins": 4,
       "draws": 0,
       "losses": 1,
       "cleanSheets": 0,
-      "knockoutWins": 1,
-      "played": 4
+      "knockoutWins": 2,
+      "played": 5
     },
     "usa": {
       "goals": 10,
@@ -88,16 +88,16 @@
       "played": 4
     },
     "bra": {
-      "goals": 9,
+      "goals": 10,
       "goalMinutes": [],
       "yellow": 0,
       "red": 0,
       "wins": 3,
       "draws": 1,
-      "losses": 0,
+      "losses": 1,
       "cleanSheets": 2,
       "knockoutWins": 1,
-      "played": 4
+      "played": 5
     },
     "fra": {
       "goals": 14,
