@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-15T18:38:23.074Z",
+  "updatedAt": "2026-07-15T19:52:20.881Z",
   "source": "football-data.org",
   "competition": "FIFA World Cup 2026",
   "teams": {
@@ -13,7 +13,7 @@
       "losses": 0,
       "cleanSheets": 2,
       "knockoutWins": 3,
-      "played": 6
+      "played": 7
     },
     "nor": {
       "goals": 13,
